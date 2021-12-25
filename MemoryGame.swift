@@ -1,9 +1,9 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    var cards: [Card]
+    private var cards: [Card]
     
-    var currentOneAndOnlyFaceUpCardIndex: Int?
+    private var currentOneAndOnlyFaceUpCardIndex: Int?
 
     init(numberOfCardPairs: Int, createCardContent: (Int) -> CardContent) {
         cards = [Card]()
@@ -35,7 +35,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
         cards[chosenIndex].isFaceUp.toggle()
     }
-    
+
     struct Card: Identifiable, Equatable {
         static func == (lhs: MemoryGame<CardContent>.Card, rhs: MemoryGame<CardContent>.Card) -> Bool {
             return lhs.id == rhs.id && lhs.isFaceUp == rhs.isFaceUp
@@ -43,7 +43,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         
         var isFaceUp = false
         var isMatched = false
-        var content: CardContent
-        var id: Int
+        let content: CardContent
+        let id: Int
     }
 }
