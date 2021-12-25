@@ -1,8 +1,10 @@
 import Foundation
 
-struct MemoryGame<CardContent> {
+struct MemoryGame<CardContent> where CardContent: Equatable {
     var cards: [Card]
     
+    var currentOneAndOnlyFaceUpCardIndex: Int?
+
     init(numberOfCardPairs: Int, createCardContent: (Int) -> CardContent) {
         cards = [Card]()
         for pairIndex in 0..<numberOfCardPairs {
@@ -15,7 +17,22 @@ struct MemoryGame<CardContent> {
     }
     
     mutating func choose(_ card: Card) {
-        guard let chosenIndex = cards.firstIndex(of: card) else { return }
+        guard let chosenIndex = cards.firstIndex(of: card),
+                !card.isFaceUp,
+                !card.isMatched else { return }
+
+        if let faceUpCardIndex = currentOneAndOnlyFaceUpCardIndex {
+            if cards[chosenIndex].content == cards[faceUpCardIndex].content {
+                cards[chosenIndex].isMatched = true
+                cards[faceUpCardIndex].isMatched = true
+            }
+            currentOneAndOnlyFaceUpCardIndex = nil
+        } else {
+            for cardIndex in cards.indices {
+                cards[cardIndex].isFaceUp = false
+            }
+            currentOneAndOnlyFaceUpCardIndex = chosenIndex
+        }
         cards[chosenIndex].isFaceUp.toggle()
     }
     
