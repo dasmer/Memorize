@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F06FE0C276E33F000C69878 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06FE0B276E33F000C69878 /* MemorizeApp.swift */; };
-		2F06FE0E276E33F000C69878 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06FE0D276E33F000C69878 /* ContentView.swift */; };
+		2F06FE0E276E33F000C69878 /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06FE0D276E33F000C69878 /* EmojiMemoryGameView.swift */; };
 		2F06FE10276E33F100C69878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F06FE0F276E33F100C69878 /* Assets.xcassets */; };
 		2F06FE13276E33F100C69878 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F06FE12276E33F100C69878 /* Preview Assets.xcassets */; };
 		2F70DCF1277607AB007EE058 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70DCF0277607AB007EE058 /* MemoryGame.swift */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		2F06FE08276E33F000C69878 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F06FE0B276E33F000C69878 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
-		2F06FE0D276E33F000C69878 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F06FE0D276E33F000C69878 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		2F06FE0F276E33F100C69878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F06FE12276E33F100C69878 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F70DCF0277607AB007EE058 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = SOURCE_ROOT; };
@@ -58,7 +58,7 @@
 				2F06FE0B276E33F000C69878 /* MemorizeApp.swift */,
 				2F70DCF0277607AB007EE058 /* MemoryGame.swift */,
 				2F70DCF227760B29007EE058 /* EmojiMemoryGame.swift */,
-				2F06FE0D276E33F000C69878 /* ContentView.swift */,
+				2F06FE0D276E33F000C69878 /* EmojiMemoryGameView.swift */,
 				2F06FE0F276E33F100C69878 /* Assets.xcassets */,
 				2F06FE11276E33F100C69878 /* Preview Content */,
 			);
@@ -143,7 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F06FE0E276E33F000C69878 /* ContentView.swift in Sources */,
+				2F06FE0E276E33F000C69878 /* EmojiMemoryGameView.swift in Sources */,
 				2F06FE0C276E33F000C69878 /* MemorizeApp.swift in Sources */,
 				2F70DCF1277607AB007EE058 /* MemoryGame.swift in Sources */,
 				2F70DCF327760B29007EE058 /* EmojiMemoryGame.swift in Sources */,
@@ -285,6 +285,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,6 +315,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
