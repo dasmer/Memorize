@@ -1,12 +1,25 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    private var cards: [Card]
+    var cards: [Card]
     
-    private var currentOneAndOnlyFaceUpCardIndex: Int?
+    private var currentOneAndOnlyFaceUpCardIndex: Int? {
+        get {
+            let faceUpCardIndexes = cards.indices.filter { cards[$0].isFaceUp }
+
+            return faceUpCardIndexes.count == 1 ? faceUpCardIndexes.first : nil
+        }
+
+        set {
+            for cardIndex in cards.indices {
+                let isFaceUp = cardIndex == newValue
+                cards[cardIndex].isFaceUp = isFaceUp
+            }
+        }
+    }
 
     init(numberOfCardPairs: Int, createCardContent: (Int) -> CardContent) {
-        cards = [Card]()
+        cards = []
         for pairIndex in 0..<numberOfCardPairs {
             let content = createCardContent(pairIndex)
             let cardA = Card(content: content, id: pairIndex * 2)
