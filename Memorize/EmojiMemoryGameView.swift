@@ -7,7 +7,7 @@ struct EmojiMemoryGameView: View {
     var body: some View {
         VStack {
             ScrollView{
-                LazyVGrid(columns:[GridItem(.adaptive(minimum: 65))])  {
+                LazyVGrid(columns:[GridItem(.adaptive(minimum: DrawingConstants.minimumWidth))])  {
                     ForEach (game.cards) { card in
                         CardView(card: card)
                             .aspectRatio(2/3, contentMode: .fit)
@@ -28,6 +28,11 @@ struct EmojiMemoryGameView: View {
         }
         .padding(.horizontal)
     }
+
+    private struct DrawingConstants {
+        static let minimumWidth: CGFloat = 65
+        static let aspectRatio: CGFloat = 2/3
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -42,14 +47,18 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct CardView: View {
-    let card: MemoryGame<String>.Card
-    
+    private let card: EmojiMemoryGame.Card
+
+    init(card: EmojiMemoryGame.Card) {
+        self.card = card
+    }
+
     var body: some View {
         ZStack {
-            let shape =  RoundedRectangle(cornerRadius: 25)
+            let shape =  RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
             if card.isFaceUp {
                 shape.fill().foregroundColor(.white)
-                shape.strokeBorder(lineWidth: 3)
+                shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
                 Text(card.content).font(.largeTitle)
             } else if card.isMatched {
                 shape.opacity(0)
@@ -58,5 +67,10 @@ struct CardView: View {
                 shape.fill()
             }
         }
+    }
+
+    private struct DrawingConstants {
+        static let cornerRadius: CGFloat = 25
+        static let lineWidth: CGFloat = 3
     }
 }
