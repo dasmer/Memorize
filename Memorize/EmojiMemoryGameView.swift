@@ -6,11 +6,15 @@ struct EmojiMemoryGameView: View {
     
     var body: some View {
         AspectVGrid(items: game.cards, aspectRatio: DrawingConstants.aspectRatio) { card in
-            CardView(card: card)
-                .padding(4)
-                .onTapGesture {
-                    game.choose(card)
-                }
+            if card.isMatched && !card.isFaceUp {
+                Rectangle().opacity(0)
+            } else {
+                CardView(card: card)
+                    .padding(4)
+                    .onTapGesture {
+                        game.choose(card)
+                    }
+            }
         }
         .foregroundColor(.red)
         .padding(.horizontal)
@@ -26,9 +30,8 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         let game = EmojiMemoryGame()
-        EmojiMemoryGameView(game: game)
-            .preferredColorScheme(.dark)
-        EmojiMemoryGameView(game: game)
+        game.choose(game.cards[0])
+        return EmojiMemoryGameView(game: game)
             .preferredColorScheme(.light)
     }
 }
@@ -48,8 +51,6 @@ struct CardView: View {
                     shape.fill().foregroundColor(.white)
                     shape.strokeBorder(lineWidth: DrawingConstants.lineWidth)
                     Text(card.content).font(fontforSize(geometry.size))
-                } else if card.isMatched {
-                    shape.opacity(0)
                 }
                 else {
                     shape.fill()
